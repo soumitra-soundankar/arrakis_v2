@@ -33,10 +33,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.2
-    - name: Checking working directory
-      working-directory: ${{env.working-directory}}
-      run: ls -lrat
     - name: Build with Maven
       working-directory: ${{env.working-directory}}
-      run: mvn -B package --file pom.xml
+      run: ./mvnw -B package
 
