@@ -16,24 +16,23 @@ import com.db.grad.javaapi.model.Dogs;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class DogsController {
     private DogsService dogsService;
 
     @Autowired
-    public DogsController(DogsService ds)
-    {
+    public DogsController(DogsService ds) {
         dogsService = ds;
     }
 
     @GetMapping("/dogs")
-    public List < Dogs > getAllDogs() {
+    public List<Dogs> getAllDogs() {
         return dogsService.getAllDogs();
     }
 
     @GetMapping("/dogs/{id}")
-    public ResponseEntity < Dogs > getEmployeeById(@PathVariable(value = "id") Long id)
-    throws ResourceNotFoundException {
+    public ResponseEntity<Dogs> getEmployeeById(@PathVariable(value = "id") Long id)
+            throws ResourceNotFoundException {
         Dogs dogs = dogsService.findDogById(id);
         return ResponseEntity.ok().body(dogs);
     }
@@ -44,19 +43,19 @@ public class DogsController {
     }
 
     @PutMapping("/dogs/{id}")
-    public ResponseEntity < Dogs > updateDog(@PathVariable(value = "id") Long id,
-        @Valid @RequestBody Dogs dogDetails) throws ResourceNotFoundException {
+    public ResponseEntity<Dogs> updateDog(@PathVariable(value = "id") Long id,
+                                          @Valid @RequestBody Dogs dogDetails) throws ResourceNotFoundException {
 
         final Dogs updatedDogs = dogsService.updateDogDetails(id, dogDetails);
         return ResponseEntity.ok(updatedDogs);
     }
 
     @DeleteMapping("/dogs/{id}")
-    public Map < String, Boolean > deleteDog(@PathVariable(value = "id") Long id)
-    throws ResourceNotFoundException {
-    	Dogs dogs = dogsService.deleteTheDog(id);
+    public Map<String, Boolean> deleteDog(@PathVariable(value = "id") Long id)
+            throws ResourceNotFoundException {
+        Dogs dogs = dogsService.deleteTheDog(id);
 
-        Map < String, Boolean > response = new HashMap <>();
+        Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
     }
