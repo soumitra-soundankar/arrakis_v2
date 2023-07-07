@@ -9,21 +9,15 @@ build/
 dist/
 .pytest_cache/
 .vscode/
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+**/target/**
+react-app/src/node/**
+**/package-lock.json
 
 # Distribution / packaging
-.Python
-build/
-develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
