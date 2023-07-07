@@ -30,10 +30,6 @@ jobs:
         java-version: '17'
         java-package: jdk
         cache: maven
-    - name: Use Node.js 18.2
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.2
     - name: Build with Maven
       working-directory: ${{env.working-directory}}
       run: ./mvnw -B package
