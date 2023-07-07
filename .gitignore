@@ -10,6 +10,8 @@ dist/
 .pytest_cache/
 .vscode/
 **/target/**
+react-app/src/node/**
+**/package-lock.json
 
 # Distribution / packaging
 dist/
