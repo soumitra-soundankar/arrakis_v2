@@ -1,7 +1,7 @@
 #
 # Build stage
 #
-FROM maven:3.6.0-jdk-17-slim AS build
+FROM maven:3.8.3-openjdk-17 AS build
 COPY java-api /home/app/java-api
 COPY react-app /home/app/react-app
 COPY pom.xml /home/app
