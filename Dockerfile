@@ -10,7 +10,7 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 # Package stage
 #
-FROM openjdk:17-jre-slim
+FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /home/app/java-api/target/java-api-1.0-SNAPSHOT.jar /usr/local/lib/WebApp.jar
 EXPOSE 8080 
 ENTRYPOINT ["java", "-jar", "/usr/local/lib/WebApp.jar"]
