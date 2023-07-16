@@ -13,7 +13,7 @@ mvnw.cmd clean install (Windows)
 ./mvnw clean install (Mac/Codespaces/Linux)
 ```
 
-3. Issue following command to have it up locally or in CodeSpaces
+3. Run locally or in CodeSpaces
 ```cmd
 mvnw.cmd spring-boot:run -pl java-api (Windows)
 ./mvnw spring-boot:run -pl java-api (Mac/Codespaces/Linux)
@@ -24,7 +24,7 @@ Further Reference
 * [frontend](./java-api/readme.md)
 * [backend](./react-app/readme.md) 
  
-3. Deploy to Fly
+4. Run on a server
 * Register for an account on fly.io
 * Install [flyctl](https://fly.io/docs/hands-on/install-flyctl/) 
 * Authorise flyctl to access your fly account
@@ -35,4 +35,16 @@ flyctl auth login
 ```cmd
 flyctl apps create 
 ```
-* Enter the app name into fly.toml 
+* Enter the app name into fly.toml
+* Manually trigger the Java Deploy to fly.io workflow (or edit the action to trigger on push to main branch)
+* App should be available on {appname}.fly.dev
+
+Note:  you might need to scale the app resources
+```cmd
+fly scale memory 2048 -a {appname} (To scale memory)
+```
+or
+```cmd
+fly scale vm shared-cpu-2x {appname} (To scale CPU)
+```
+See [fly documentation](https://fly.io/docs/apps/scale-machine) for more guidance
