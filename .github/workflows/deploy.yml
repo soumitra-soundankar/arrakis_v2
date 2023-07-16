@@ -39,5 +39,5 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:
-          FLY_API_TOKEN: ${{ fo1_hoov9gO2JHHgruMlWcYxBNn-GOi9vsJq2wluVy1mdcs }} # TODO: convert to secret
+          FLY_API_TOKEN: 'fo1_hoov9gO2JHHgruMlWcYxBNn-GOi9vsJq2wluVy1mdcs' # TODO: convert to secret
 
