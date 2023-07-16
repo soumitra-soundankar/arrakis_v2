@@ -9,7 +9,7 @@
 name: Java Deploy to fly.io
 
 on:
-  workflow_dispatch
+  push
 
 jobs:
   build:
