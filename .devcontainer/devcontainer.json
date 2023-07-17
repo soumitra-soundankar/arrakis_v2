@@ -6,11 +6,8 @@
 	"image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
 
 	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "true",
-			"installGradle": "false"
-		}
+		"ghcr.io/devcontainers/features/java:1": {},
+		"ghcr.io/devcontainers/features/node:1": {}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
