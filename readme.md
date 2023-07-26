@@ -44,10 +44,59 @@ Further Reference
 
 Note:
 From Codespaces, you can allow public access to the running application, see [here](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace) for details. This will allow others outside of your codespace to navigate to the url - this can be useful for team testing or demos.  Alternatively you can push the code to a server as in the next section.
- 
-## Run on a server
+
+## Run in Codespace ** [Optional] **
+
+* Click on codespace
+  
+  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/e32907bd-2a47-4b2b-8e06-567f4489fdc9)
+  
+* It will open new window with Visual studio in it
+
+* In Editor in terminal first run
+  
+  ```cmd
+  mvnw clean install
+  ```
+  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/3796d45d-f303-4b2b-ad4c-9a1fc88dcf68)
+  
+* Once that is finished run below command
+  
+  ```cmd
+  ./mvnw spring-boot:run -pl java-api
+  ```
+  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/397e674a-3e3b-4868-b1bc-5ee84b40cc6a)
+
+* Once finished on right bottom corner it asks for "Open in Browser" and "Make Public". Click on "Make Public"
+  
+  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/b8fe7b3f-8ef9-47f0-af57-e3c03c0f4b88)
+  
+  
+* Go to Ports, you will find an URL where application can be accessed
+  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/e9de9bdb-ae4d-4a89-a7cc-aeb80a4b486a)
+
+
+## Run on a server ** [Optional] **
+* This is completely Optional for coding challenge, make sure you will not enter any payment method to fly.io
 * Register for an account on fly.io
-* Install [flyctl](https://fly.io/docs/hands-on/install-flyctl/) 
+  * Go to www.fly.io
+
+    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/eef6391e-8df1-4b11-ab2d-edb95d3cd723)
+    
+  * Click on signup
+    
+    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/ba8368e4-b536-4551-9c9e-0b77617caf19)
+    
+  * Enter any personal account email id and password
+    
+    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/7cc5ba20-ba23-4832-a63d-434eac1d8b5c)
+    
+  * Click on top left corner, it will take you to dashboard. Confirm you are using Trial Plan and there is no payment method added
+    
+    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/88fcca42-68bc-4a6c-aa53-5fff1c5bf5ab)
+    
+* Install [flyctl](https://fly.io/docs/hands-on/install-flyctl/)
+  
 * Authorise flyctl to access your fly account
 ```cmd
 flyctl auth login
