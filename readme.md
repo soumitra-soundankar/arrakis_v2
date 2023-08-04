@@ -49,7 +49,8 @@ From Codespaces, you can allow public access to the running application, see [he
 
 * Click on codespace
   
-  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/e32907bd-2a47-4b2b-8e06-567f4489fdc9)
+  ![image](https://github.com/soumitra-soundankar/arrakis_v2/assets/36617041/5faf5ec1-ea5a-43ff-8967-874ad1763d48)
+
   
 * It will open new window with Visual studio in it
 
