@@ -82,19 +82,18 @@ From Codespaces, you can allow public access to the running application, see [he
 * Register for an account on fly.io
   * Go to www.fly.io
 
-    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/eef6391e-8df1-4b11-ab2d-edb95d3cd723)
+    ![image](https://github.com/soumitra-soundankar/arrakis_v2/assets/36617041/6902c8dc-2ebc-4e36-940b-24910613634c)
+
     
   * Click on signup
-    
-    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/ba8368e4-b536-4551-9c9e-0b77617caf19)
-    
   * Enter any personal account email id and password
-    
-    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/7cc5ba20-ba23-4832-a63d-434eac1d8b5c)
-    
+
+  ![image](https://github.com/soumitra-soundankar/arrakis_v2/assets/36617041/acc2b7d8-9dce-451c-a16f-2f9c22433e5e)
+  
+  
   * Click on top left corner, it will take you to dashboard. Confirm you are using Trial Plan and there is no payment method added
     
-    ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/88fcca42-68bc-4a6c-aa53-5fff1c5bf5ab)
+    ![image](https://github.com/soumitra-soundankar/arrakis_v2/assets/36617041/a5f9bfcc-35d2-4447-b0d5-3bf2d3a09f94)
     
 * Install [flyctl](https://fly.io/docs/hands-on/install-flyctl/)
   
