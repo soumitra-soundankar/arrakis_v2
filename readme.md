@@ -59,14 +59,16 @@ From Codespaces, you can allow public access to the running application, see [he
   ```cmd
   mvnw clean install
   ```
-  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/3796d45d-f303-4b2b-ad4c-9a1fc88dcf68)
+  ![image](https://github.com/soumitra-soundankar/arrakis_v2/assets/36617041/d672c128-8c7a-40bd-9da0-cf96e4704b69)
+
   
 * Once that is finished run below command
   
   ```cmd
   ./mvnw spring-boot:run -pl java-api
   ```
-  ![image](https://github.com/stream2stream/arrakis_v2/assets/36617041/397e674a-3e3b-4868-b1bc-5ee84b40cc6a)
+ ![image](https://github.com/soumitra-soundankar/arrakis_v2/assets/36617041/c3ce3825-34b7-4f52-9c03-290259b93091)
+
 
 * Once finished on right bottom corner it asks for "Open in Browser" and "Make Public". Click on "Make Public"
   
