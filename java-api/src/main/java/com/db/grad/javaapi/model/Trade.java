@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Column;
 import java.util.Date;
 import com.db.grad.javaapi.model.Book;
+import javax.persistence.CascadeType;
 
 @Entity
 public class Trade {
@@ -13,15 +14,15 @@ public class Trade {
     @Id
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "BookId", nullable = false)
     private Book book;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "CounterpartyId", nullable = false)
     private Counterparty counterparty;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "SecurityId", nullable = false)
     private Security security;
 

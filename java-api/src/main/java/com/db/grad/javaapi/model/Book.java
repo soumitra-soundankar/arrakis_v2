@@ -17,9 +17,6 @@ public class Book {
     @Column(nullable = false, length = 255)
     private String bookName;
 
-    // Constructors, getters, and setters
-
-    // Constructors, getters, and setters
 
     public Book() {
         // Default constructor required by JPA
