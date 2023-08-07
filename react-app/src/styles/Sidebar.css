@@ -1,0 +1,41 @@
+/* App.css */
+#sidebar {
+    transition: all 0.3s;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  #sidebar .sidebar-header {
+    padding: 20px;
+  }
+  
+  #sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+  }
+  
+  #sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+  }
+  
+  #sidebar ul li a:hover {
+    color: #007bff;
+    background: #fff;
+  }
+  
+  #content {
+    padding-left: 25%; /* Adjust the padding to match sidebar width */
+  }
+  
+.hover-color-change {
+    transition: color 0.3s; /* Smooth transition effect */
+}
+.hover-color-change:hover {
+    color: red; /* Change to the desired color on hover */
+}
