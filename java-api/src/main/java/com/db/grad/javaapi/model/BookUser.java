@@ -10,43 +10,89 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BookUser")
-@IdClass(BookUserId.class)
 public class BookUser {
 
+    // @Id
+    // private int bookId;
+
+    // @Id
+    // private int userId;
+
+    // // Default constructor (required by JPA)
+    // public BookUser() {}
+
+    // public BookUser(int bookId, int userId) {
+    //     this.bookId = bookId;
+    //     this.userId = userId;
+    // }
+
+    // // Getters and Setters (you can generate them using your IDE or write them manually)
+    // public int getBookId() {
+    //     return bookId;
+    // }
+
+    // public void setBookId(int bookId) {
+    //     this.bookId = bookId;
+    // }
+
+    // public int getUserId() {
+    //     return userId;
+    // }
+
+    // public void setUserId(int userId) {
+    //     this.userId = userId;
+    // }
+
+    // // toString() method (optional, for better logging or debugging)
+    // @Override
+    // public String toString() {
+    //     return "BookUser [bookId= " + bookId + ", userId= "  + userId + "]";
+    // }
     @Id
-    private int bookId;
+    private int id; // Assuming this is the primary key for the join table
 
-    @Id
-    private int userId;
+    @ManyToOne
+    @JoinColumn(name = "BookId", referencedColumnName = "Id", nullable = false)
+    private Book book;
 
-    // Default constructor (required by JPA)
-    public BookUser() {}
+    @ManyToOne
+    @JoinColumn(name = "UserId", referencedColumnName = "Id", nullable = false)
+    private Users users;
 
-    public BookUser(int bookId, int userId) {
-        this.bookId = bookId;
-        this.userId = userId;
+    // Constructors, getters, and setters
+
+    public BookUser() {
+        // Default constructor required by JPA
     }
 
-    // Getters and Setters (you can generate them using your IDE or write them manually)
-    public int getBookId() {
-        return bookId;
+    public BookUser(Book book, Users users) {
+        this.book = book;
+        this.users = users;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    // Getters and setters for all fields
+
+    public int getId() {
+        return id;
     }
 
-    public int getUserId() {
-        return userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public Book getBook() {
+        return book;
     }
 
-    // toString() method (optional, for better logging or debugging)
-    @Override
-    public String toString() {
-        return "BookUser [bookId= " + bookId + ", userId= "  + userId + "]";
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Users getUser() {
+        return users;
+    }
+
+    public void setUser(Users users) {
+        this.users = users;
     }
 }

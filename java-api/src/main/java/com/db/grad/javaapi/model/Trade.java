@@ -15,15 +15,15 @@ public class Trade {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "BookId")
+    @JoinColumn(name = "BookId",nullable = false)
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "CounterpartyId")
+    @JoinColumn(name = "CounterpartyId",nullable = false)
     private Counterparty counterparty;
 
     @ManyToOne
-    @JoinColumn(name = "SecurityId")
+    @JoinColumn(name = "SecurityId",nullable = false)
     private Security security;
 
     @Column

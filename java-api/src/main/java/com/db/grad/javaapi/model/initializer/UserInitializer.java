@@ -29,7 +29,7 @@ public class UserInitializer implements CommandLineRunner {
         // Users user2 = new Users("Jane Smith", "jane.smith@example.com", "ROLE_ADMIN");
         // usersRepository.save(user2);
 
-        String fileName ="src/main/java/com/db/grad/javaapi/model/data/users.txt"; // Name of the text file containing the dataset
+        String fileName ="src/main/java/com/db/grad/javaapi/model/initializer/users.txt"; // Name of the text file containing the dataset
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;

@@ -1,4 +1,5 @@
 package com.db.grad.javaapi.model;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -25,6 +26,7 @@ public class Security {
     private String issuer;
 
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate maturityDate;
 
     @Column

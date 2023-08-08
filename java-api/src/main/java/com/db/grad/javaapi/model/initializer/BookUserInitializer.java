@@ -46,13 +46,13 @@ public class BookUserInitializer implements CommandLineRunner {
       //   bookUserRepository.save(bookUser3);
 
       
-      Random randomGenerator=new Random();
+    //   Random randomGenerator=new Random();
 
-      for(int i=1; i<=40; i++){
-         int userId = randomGenerator.nextInt(50) + 1;
-         int bookId = randomGenerator.nextInt(10) + 1;
-         BookUser bookUser = new BookUser(bookId,userId);
-         bookUserRepository.save(bookUser);
-      }
+    //   for(int i=1; i<=40; i++){
+    //      int userId = randomGenerator.nextInt(50) + 1;
+    //      int bookId = randomGenerator.nextInt(10) + 1;
+    //      BookUser bookUser = new BookUser(bookId,userId);
+    //      bookUserRepository.save(bookUser);
+    //   }
     }
 }
