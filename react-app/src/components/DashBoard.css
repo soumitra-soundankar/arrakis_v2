@@ -1,0 +1,164 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set up a basic grid layout for the dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the navbar */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-container select {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sort-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.sort-container label {
+    margin-right: 0.5rem;
+}
+
+.sort-container select {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.date-range-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.date-range-container label {
+    margin-right: 0.5rem;
+}
+
+.date-range-container input[type="date"] {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Style the content area */
+.content {
+    padding: 1rem;
+    overflow: auto;
+}
+
+/* Style the options buttons */
+.options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.options button {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.options button.selected {
+    background-color: grey;
+    color: white;
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Highlight unpaid bonds */
+tbody tr.unpaid {
+    background-color: #FFBABA;
+}
+
+.red-row {
+    background-color: #ffcccc;
+}
+
+/* ... (other styles) */
+
+/* Style the selected heading */
+.selected-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.selected-heading h2 {
+    font-size: 1.5rem;
+}
+
+/* ... (other styles) */
+
+
+/* ... (other styles) */
