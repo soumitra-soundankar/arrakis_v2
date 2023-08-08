@@ -2,6 +2,7 @@ package com.db.grad.javaapi.controller;
 
 import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Security;
+import com.db.grad.javaapi.model.dto.TradeModel;
 import com.db.grad.javaapi.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -65,6 +66,15 @@ public class SecurityController {
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (ResourceNotFoundException rex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/allTradesForSecurity/{id}")
+    public ResponseEntity<List<TradeModel>> getAllTradesForSecurity(@PathVariable("id") long id) {
+        try{
+            return new ResponseEntity<>(securityService.getTradesForSecurity(id), HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

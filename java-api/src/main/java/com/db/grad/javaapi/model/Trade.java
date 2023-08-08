@@ -4,8 +4,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Column;
-import java.util.Date;
-import com.db.grad.javaapi.model.Book;
+import java.time.LocalDate;
 
 @Entity
 public class Trade {
@@ -38,10 +37,10 @@ public class Trade {
     private String buySell;
 
     @Column
-    private Date tradeDate;
+    private LocalDate tradeDate;
 
     @Column
-    private Date settlementDate;
+    private LocalDate settlementDate;
 
     // Constructors, getters, and setters
 
@@ -49,7 +48,7 @@ public class Trade {
         // Default constructor required by JPA
     }
 
-    public Trade(Book book, Counterparty counterparty, Security security, Integer quantity, String status, Float price, String buySell, Date tradeDate, Date settlementDate) {
+    public Trade(Book book, Counterparty counterparty, Security security, Integer quantity, String status, Float price, String buySell, LocalDate tradeDate, LocalDate settlementDate) {
         this.book = book;
         this.counterparty = counterparty;
         this.security = security;
@@ -127,19 +126,19 @@ public class Trade {
         this.buySell = buySell;
     }
 
-    public Date getTradeDate() {
+    public LocalDate getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(Date tradeDate) {
+    public void setTradeDate(LocalDate tradeDate) {
         this.tradeDate = tradeDate;
     }
 
-    public Date getSettlementDate() {
+    public LocalDate getSettlementDate() {
         return settlementDate;
     }
 
-    public void setSettlementDate(Date settlementDate) {
+    public void setSettlementDate(LocalDate settlementDate) {
         this.settlementDate = settlementDate;
     }
 }
