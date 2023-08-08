@@ -6,9 +6,7 @@ import com.db.grad.javaapi.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,19 +20,53 @@ public class SecurityController {
     }
 
     @GetMapping("/getAllSecurities")
-    public List<Security> getAllSecurities() {
-        return securityService.getAllSecurities();
+    public ResponseEntity<List<Security>> getAllSecurities() {
+        try {
+            return new ResponseEntity<>(securityService.getAllSecurities(), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/security/{id}")
-    public ResponseEntity<Object> getSecurityById(@PathVariable("id") long id) {
+    public ResponseEntity<Security> getSecurityById(@PathVariable("id") long id) {
         try{
             Security security = securityService.findSecurityByID(id);
             return new ResponseEntity<>(security, HttpStatus.OK);
         } catch (ResourceNotFoundException rex) {
-            return new ResponseEntity<>(rex.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception ex) {
-            return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/createSecurity")
+    public ResponseEntity<Security> createNewSecurity(Security security) {
+        try {
+            return new ResponseEntity<>(securityService.createNewSecurity(security), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/updateSecurity")
+    public ResponseEntity<Security> updateSecurity(Security security) {
+        try {
+            return new ResponseEntity<>(securityService.updateSecurity(security), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/deleteSecurity")
+    public ResponseEntity<HttpStatus> deleteSecurity(String isin) {
+        try {
+            securityService.deleteSecurityByIsin(isin);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (ResourceNotFoundException rex) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

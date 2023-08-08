@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface SecurityRepository extends JpaRepository<Security, Long> {
     List<Security> findAll();
     Optional<Security> findById(long id);
+    void deleteByIsin(String isin);
+    boolean existsByIsin(String isin);
 }
