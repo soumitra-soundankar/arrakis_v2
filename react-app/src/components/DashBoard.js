@@ -1,30 +1,8 @@
 
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import './DashBoard.css';
-
-const sampleBonds = [
-    { id: 'INE093JA7LY0', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '07-08-2023', issueSize: '₹63.825', status: 'Unpaid' },
-    { id: 'INE093JA7LR4', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '09-08-2023', issueSize: '₹63.825', status: 'Upcoming' },
-    { id: 'INE093JA7LQ6', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '08-08-2023', issueSize: '₹63.825', status: 'Paid' },
-    { id: 'INE093JA7LV6', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '08-08-2023', issueSize: '₹63.825', status: 'Unpaid' },
-    { id: 'INE093JA7LS2', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '08-08-2023', issueSize: '₹63.825', status: 'Paid' },
-    { id: 'INE093JA7LW4', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '09-08-2023', issueSize: '₹63.825', status: 'Upcoming' },
-    { id: 'INE093JA7LU8', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '09-08-2023', issueSize: '₹63.825', status: 'Upcoming' },
-    { id: 'INE093JA7LX2', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '09-08-2023', issueSize: '₹63.825', status: 'Upcoming' },
-    { id: 'INE093JA7CB7', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '10-08-2023', issueSize: '₹9.20', status: 'Upcoming' },
-    { id: 'INE093JA7LT0', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '10-08-2023', issueSize: '₹63.825', status: 'Upcoming' },
-    { id: 'INE177R07084', issuer: 'AVENDUS FINANCE PRIVATE LIMITED', maturityDate: '07-08-2023', issueSize: '₹97.00', status: 'Paid' },
-    { id: 'INE051307788', issuer: 'CHEMMANUR CREDITS AND INVESTMENTS LIMITED', maturityDate: '07-08-2023', issueSize: '₹0.08', status: 'Paid' },
-    { id: 'INE051307770', issuer: 'CHEMMANUR CREDITS AND INVESTMENTS LIMITED', maturityDate: '06-08-2023', issueSize: '₹0.275', status: 'Unpaid' },
-    { id: 'INE939X07028', issuer: 'MANBA FINANCE LIMITED', maturityDate: '11-08-2023', issueSize: '₹10.00', status: 'Upcoming' },
-    { id: 'IN8248U07086', issuer: '360 ONE PRIME LIMITED', maturityDate: '11-08-2023', issueSize: '₹0.00', status: 'Upcoming' },
-    { id: 'INE248U07DH1', issuer: '360 ONE PRIME LIMITED', maturityDate: '08-08-2023', issueSize: '₹499.90', status: 'Unpaid' },
-    { id: 'INE093JA7CD3', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '05-08-2023', issueSize: '₹19.00', status: 'Paid' },
-    { id: 'INE823G07136', issuer: 'J.K.CEMENT LIMITED', maturityDate: '04-08-2023', issueSize: '₹12.00', status: 'Paid' },
-    { id: 'INE302E07292', issuer: 'SAKTHI FINANCE LIMITED', maturityDate: '14-08-2023', issueSize: '₹7.935', status: 'Upcoming' },
-    { id: 'INE302E07284', issuer: 'SAKTHI FINANCE LIMITED', maturityDate: '08-08-2023', issueSize: '₹1.415', status: 'Paid' },
-    { id: 'INE093JA7AB1', issuer: 'ANAND RATHI GLOBAL FINANCE LIMITED', maturityDate: '16-08-2023', issueSize: '₹63.825', status: 'Upcoming' },
-];
+import axios from 'axios';
+var sampleBonds = [];
 
 const Dashboard = () => {
     const [selectedOption, setSelectedOption] = useState('All Maturities');
@@ -36,6 +14,20 @@ const Dashboard = () => {
     const [maturityDateFrom, setMaturityDateFrom] = useState('');
     const [maturityDateTo, setMaturityDateTo] = useState('');
     const [selectedHeading, setSelectedHeading] = useState('All Maturities');
+
+    useEffect(() => {
+        fetchBonds(); // Fetch bonds when the component mounts
+    }, []);
+
+    const fetchBonds = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/getAllSecurities');
+            sampleBonds = response.data;
+            setBondList(response.data); // Populate bondList with fetched data
+        } catch (error) {
+            console.error('Error fetching bonds:', error);
+        }
+    };
 
     const handleOptionClick = (option) => {
         setSelectedOption(option);
@@ -192,7 +184,7 @@ const Dashboard = () => {
                     <button onClick={() => handleOptionClick('Pending Maturities')}>Pending Maturities</button>
                     <button onClick={() => handleOptionClick('Upcoming Maturities')}>Upcoming Maturities</button>
                     <button onClick={() => handleOptionClick('Recent Maturities')}>Recent Maturities</button>
-                    
+
                 </div>
                 <div className="selected-heading">
                     <h2>{selectedHeading}</h2>
@@ -200,10 +192,10 @@ const Dashboard = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>ISIN</th>
                             <th>Issuer</th>
                             <th>Maturity Date</th>
-                            <th>Issue Size (In Crores)</th>
+                            <th>Face Value (In Crores)</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -217,10 +209,10 @@ const Dashboard = () => {
                                         : ''
                                 }
                             >
-                                <td>{bond.id}</td>
+                                <td>{bond.isin}</td>
                                 <td>{bond.issuer}</td>
                                 <td>{bond.maturityDate}</td>
-                                <td>{bond.issueSize}</td>
+                                <td>{bond.faceValue}</td>
                                 <td>{bond.status}</td>
                             </tr>
                         ))}
