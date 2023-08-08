@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Security")
@@ -25,7 +25,7 @@ public class Security {
     private String issuer;
 
     @Column
-    private Date maturityDate;
+    private LocalDate maturityDate;
 
     @Column
     private Float coupon;
@@ -45,7 +45,7 @@ public class Security {
         // Default constructor required by JPA
     }
 
-    public Security(String isin, String cusip, String issuer, Date maturityDate, Float coupon, String type, Float faceValue, String status) {
+    public Security(String isin, String cusip, String issuer, LocalDate maturityDate, Float coupon, String type, Float faceValue, String status) {
         this.isin = isin;
         this.cusip = cusip;
         this.issuer = issuer;
@@ -90,11 +90,11 @@ public class Security {
         this.issuer = issuer;
     }
 
-    public Date getMaturityDate() {
+    public LocalDate getMaturityDate() {
         return maturityDate;
     }
 
-    public void setMaturityDate(Date maturityDate) {
+    public void setMaturityDate(LocalDate maturityDate) {
         this.maturityDate = maturityDate;
     }
 
