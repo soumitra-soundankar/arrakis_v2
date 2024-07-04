@@ -1,5 +1,7 @@
 # Welcome to the TDI Graduate Training Coding Project
 
+For the project brief, including requirements and ways of working see [here](./project-brief.md)
+
 ## How to get started:
 
 TODO - update this for the internally hosted repository (on BitBucket or GitHub)
