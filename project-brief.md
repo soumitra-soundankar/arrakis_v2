@@ -17,8 +17,10 @@ The application should at a high level:
 Who are the users of this application?
 * The users are members of the FIC ops team
 * The users will manage a number of books which contain trades and have to ensure the trade bookings are correct and accurate.
+* Different users are assigned different books (and therefore trades within that book) to monitor
 
-MVP 1.0 Simplified user stories
+## User Stories
+
 | Story | Comments |
 |-------|----------|
 | In order to view the portfolio as a user I want to see all the bonds active in the system | |
@@ -31,6 +33,8 @@ MVP 1.0 Simplified user stories
 | In order to understand the trading details as a user I want to be able to see the details of individual bonds | |
 | In order to help in the understanding of failed maturities, as a user I want to see the underlying trades linked to a bond | |
         
+## TODO - Add in some guidance for datamodel
+
 ## What Is A Bond?
 A bond is a type of investment security where an investor lends money to a company or government for a set period of time, in exchange for regular interest payments.
 When the bond reaches maturity (the time when the bond issuer must repay the original bond value to the bond holder), the issuer of the bond returns the investor’s money.
