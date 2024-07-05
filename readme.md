@@ -1,6 +1,6 @@
 # Welcome to the TDI Graduate Training Coding Project
 
-For the project brief, including requirements and ways of working see [here](./project-brief.md)
+For the project brief, including requirements and ways of working see [here](./docs/project-brief.md)
 
 ## How to get started:
 

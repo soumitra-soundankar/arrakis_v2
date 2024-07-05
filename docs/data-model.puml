@@ -1,0 +1,69 @@
+@startuml
+
+' configuration
+hide circle
+skinparam linetype ortho
+
+' comment
+entity "book" as book {
+ book_id
+ --
+ name
+}
+
+entity "user" as user {
+ user_id
+ --
+ username
+ email
+ role
+}
+
+entity "counterparty" as counterparty {
+ counterparty_id
+ --
+ name
+}
+
+entity "book_user" as book_user {
+ book_id
+ user_id
+ --
+}
+
+entity "security" as security {
+ security_id
+ --
+ isin
+ cusip
+ issuer_name
+ maturity_date
+ coupon
+ type
+ face_value
+ currency
+ status
+}
+
+entity "trades" as trades {
+ trade_id
+ --
+ book_id
+ security_id
+ counterparty_id
+ currency
+ status
+ quantity
+ unit_price
+ buy_sell_indicator
+ trade_date
+ settlement_date
+}
+
+trades ||--o{ book
+trades ||--o{ security
+trades ||--o{ counterparty
+user ||--o{ book_user
+book ||--o{ book_user
+
+@enduml

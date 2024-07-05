@@ -21,19 +21,22 @@ Who are the users of this application?
 
 ## User Stories
 
-| Story | Comments |
-|-------|----------|
-| In order to view the portfolio as a user I want to see all the bonds active in the system | |
-| In order to support the investigation into bonds post maturity and still on the books, as a user I want to be able to view bonds due for maturity in the next 5 days | This implies within business working days |
-| In order to provide optics on positions, as a user I want to be able to view bonds due for maturity in the last and next 5 days | |
-| In order to be able to uniquely identify a given bond and bond trades, as a user I want to see the bonds ISIN / CUSIP | ISIN - An International Securities Identification Number uniquely identifies a security. A CUSIP is a nine-digit numeric (e.g. 037833100 for Apple) or nine-character alphanumeric (e.g. 38259P508 for Google) code that identifies a North American financial security for the purposes of facilitating clearing and settlement of trades |
-| In order to identify the issuer of the bond as a user I want to the name of the issuer of the bond | |
-| In order to be able to identify who owns the bond, as a user I want to see the client name who holds the bond | |
-| In order to manage my portfolio of bonds, as a user I want to see the bonds in the books I am responsible for | This requires functionality to assign a bond to a user and then filter the data by the assigned user |
-| In order to understand the trading details as a user I want to be able to see the details of individual bonds | |
-| In order to help in the understanding of failed maturities, as a user I want to see the underlying trades linked to a bond | |
+| Story | Comments | Acceptance Criteria |
+|-------|----------|---------------------|
+| In order to view the portfolio as a user I want to see all the bonds active in the system | | All trades with status open are displayed |
+| In order to support the investigation into bonds post maturity and still on the books, as a user I want to be able to view bonds due for maturity in the next 5 days | This implies within business working days | All trades with settlement date in next 5 days are displayed.  No trades with settlement date outside of the next 5 days are displayed |
+| In order to provide optics on positions, as a user I want to be able to view bonds due for maturity in the last and next 5 days | | All trades with settlement date in next or previous 5 days are displayed.  No trades with settlement date outside of the next 5 days are displayed |
+| In order to be able to uniquely identify a given bond and bond trades, as a user I want to see the bonds ISIN / CUSIP | ISIN - An International Securities Identification Number uniquely identifies a security. A CUSIP is a nine-digit numeric (e.g. 037833100 for Apple) or nine-character alphanumeric (e.g. 38259P508 for Google) code that identifies a North American financial security for the purposes of facilitating clearing and settlement of trades | The ISIN and/or CUSIP of a trade should be displayed.  The user should be able to search by the ISIN or CUSIP | 
+| In order to identify the issuer of the bond as a user I want to see the name of the issuer of the bond | | The issuer name of a trade should be displayed.  The user should be able to search by the issuer name | 
+| In order to be able to identify who owns the bond, as a user I want to see the counterparty name who holds the bond |  | The counterparty of a trade should be displayed.  The user should be able to search by the counterparty |
+| In order to manage my portfolio of bonds, as a user I want to see the bonds in the books I am responsible for | This requires functionality to assign a bond to a user and then filter the data by the assigned user | The user should be able to assign bonds to themselves.  The user should be able to view only bonds assigned to them.  The user should be able to search for unassigned bonds.  The user should be able to search for bonds assigned to another user.  Once a bond is assigned to a user, another user cannot assign it to themselves.  An assigned user can unassign themselves from a bond or assign it to another user | 
+| In order to understand the trading details as a user I want to be able to see the details of individual bonds | | The display should contain and be searchable by book, maturity date, trade financials, trading currency, trade/settlement date, assigned user and any other fields available in the database.  The user should be able to choose the fields to display and to reorder the alignment of the fields. All fields should be able to order the dataset |
         
-## TODO - Add in some guidance for datamodel
+## Datamodel
+
+![Conceptual Data Model](./data-model.png)
+
+Example data available [here](./sample-data.md)
 
 ## What Is A Bond?
 A bond is a type of investment security where an investor lends money to a company or government for a set period of time, in exchange for regular interest payments.
