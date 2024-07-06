@@ -4,7 +4,7 @@ import com.db.grad.javaapi.model.DogsAndOwners;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Table;
+import jakarta.persistence.Table;
 import java.util.List;
 
 @Repository

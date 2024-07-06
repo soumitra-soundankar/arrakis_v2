@@ -2,7 +2,7 @@ package com.db.grad.javaapi.model;
 
 import org.springframework.data.annotation.Immutable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
