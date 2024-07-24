@@ -8,7 +8,7 @@ public class WelcomeController {
 
   @GetMapping("/")
   public String getWelcome() {
-    return "Dogs API is up and running!";
+    return "All APIs are Up and Running.";
   }
 
 }
